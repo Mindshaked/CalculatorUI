@@ -158,6 +158,12 @@ buttonNine.addEventListener('click', function(e) {
 
 
 buttonComa.addEventListener('click', function(e) {
+    if ((firstCalc.includes("."))) {
+        alert("you cannot place two decimal points in the same number");
+        return;
+    } 
+
+
     firstCalc = firstCalc + ".";
     mainScreen.innerHTML = firstCalc;
     console.log("you clicked the coma")
@@ -178,7 +184,7 @@ buttonSum.addEventListener('click', function(e) {
     totalCalc = firstCalc;
     firstCalc = "";
     operatorChosen = "sum";
-    totalCalcText = totalCalc + "+";
+    totalCalcText = totalCalc + " + ";
     topScreen.innerHTML = totalCalcText;
     mainScreen.innerHTML = firstCalc;
     console.log(totalCalc)
@@ -196,7 +202,7 @@ buttonSubtract.addEventListener('click', function(e) {
     totalCalc = firstCalc;
     firstCalc = "";
     operatorChosen = "subtract";
-    totalCalcText = totalCalc + "-";
+    totalCalcText = totalCalc + " - ";
     topScreen.innerHTML = totalCalcText;
     mainScreen.innerHTML = firstCalc;
     console.log(totalCalc)
@@ -213,7 +219,7 @@ buttonDivision.addEventListener('click', function(e) {
     totalCalc = firstCalc;
     firstCalc = "";
     operatorChosen = "divideNumbers";
-    totalCalcText = totalCalc + "÷";
+    totalCalcText = totalCalc + " ÷ ";
     topScreen.innerHTML = totalCalcText;
     mainScreen.innerHTML = firstCalc;
     console.log(totalCalc)
@@ -230,7 +236,7 @@ buttonMultiply.addEventListener('click', function(e) {
     totalCalc = firstCalc;
     firstCalc = "";
     operatorChosen = "multiply";
-    totalCalcText = totalCalc + "x";
+    totalCalcText = totalCalc + " x ";
     topScreen.innerHTML = totalCalcText;
     mainScreen.innerHTML = firstCalc;
     console.log(totalCalc)
@@ -265,10 +271,18 @@ buttonRemove.addEventListener('click', function(e) {
 let actualSolution;
 
 buttonEquals.addEventListener('click', function(e) {
+    if (firstCalc == ''){
+        alert("You need a number after the operator in order to calculate something");
+        return;
+    }
     let totalCalcNum = parseFloat(totalCalc);
     let firstCalcNum = parseFloat(firstCalc);
     console.log(firstCalcNum);
     console.log(totalCalcNum);
+    if (operatorChosen == ""){
+        actualSolution = firstCalcNum;
+        return actualSolution;
+    } 
     actualSolution = operate(totalCalcNum,firstCalcNum,operatorChosen);
     actualSolution = Math.round((actualSolution + Number.EPSILON) * 100) / 100;
     firstCalc = actualSolution;
