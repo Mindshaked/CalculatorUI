@@ -16,6 +16,10 @@ function divideNumbers(a,b){
     return a / b;
 }
 
+function remainderNumbers(a,b){
+    return a % b;
+}
+
 
 // function that takes two numbers and an operator(op).
 
@@ -27,7 +31,9 @@ function operate(a,b,op){
     } else if (op == "multiply"){
         return multiplyNumbers(a,b);
     } else if (op == "divideNumbers"){
-        return divideNumbers(a,b)
+        return divideNumbers(a,b);
+    } else if (op == "remainder"){
+        return remainderNumbers(a,b);
     }
 
 }
@@ -62,6 +68,8 @@ const buttonSum = document.getElementById("sum");
 const buttonSubtract = document.getElementById("subtract");
 const buttonDivision = document.getElementById("division");
 const buttonMultiply = document.getElementById("multiply");
+
+const buttonRemainder = document.getElementById("remainder")
 
 //other tool numbers
 
@@ -109,7 +117,7 @@ buttonThree.addEventListener('click', function(e) {
 });
 
 buttonFour.addEventListener('click', function(e) {
-    firstCalc = firstCalc + "24";
+    firstCalc = firstCalc + "4";
     mainScreen.innerHTML = firstCalc;
     console.log("you clicked the number 4")
     console.log(firstCalc);
@@ -242,6 +250,24 @@ buttonMultiply.addEventListener('click', function(e) {
     console.log(totalCalc)
     console.log(firstCalc);
     return operatorChosen;
+    
+});
+
+buttonRemainder.addEventListener('click', function(e) {
+    if (firstCalc == ''){
+        alert("You need to add a number before the operator");
+        return;
+    }
+    totalCalc = firstCalc;
+    firstCalc = "";
+    operatorChosen = "remainder";
+    totalCalcText = totalCalc + " % ";
+    topScreen.innerHTML = totalCalcText;
+    mainScreen.innerHTML = firstCalc;
+    console.log(totalCalc)
+    console.log(firstCalc);
+    return operatorChosen;
+
     
 });
 
