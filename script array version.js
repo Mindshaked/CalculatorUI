@@ -24,15 +24,15 @@ function remainderNumbers(a,b){
 // function that takes two numbers and an operator(op).
 
 function operate(a,b,op){
-    if (op == "sum"){
+    if (op == " + "){
         return sumNumbers(a,b);
-    } else if (op == "subtract"){
+    } else if (op == " - "){
         return subtractNumbers(a,b);
-    } else if (op == "multiply"){
+    } else if (op == " x "){
         return multiplyNumbers(a,b);
-    } else if (op == "divideNumbers"){
+    } else if (op == " ÷ "){
         return divideNumbers(a,b);
-    } else if (op == "remainder"){
+    } else if (op == " % "){
         return remainderNumbers(a,b);
     }
 
@@ -41,10 +41,8 @@ function operate(a,b,op){
 
 // calculation process
 
+let totalCalc = [];
 let firstCalc = '';
-
-let totalCalc = '';
-
 const mainScreen = document.getElementById("main-operation");
 const topScreen = document.getElementById("top-operation");
 
@@ -90,7 +88,7 @@ const buttonEquals = document.getElementById("equals");
 // numbers functions
 
 buttonZero.addEventListener('click', function(e) {
-    firstCalc = firstCalc + "0";
+    firstCalc = firstCalc.concat("0");
     mainScreen.innerHTML = firstCalc;
     console.log("you clicked the number 0")
     console.log(firstCalc);
@@ -185,113 +183,79 @@ buttonComa.addEventListener('click', function(e) {
 });
 
 
-let operatorChosen = "";
-let totalCalcText = "";
-let actualSolution;
 
 // operators functions
 
 buttonSum.addEventListener('click', function(e) {
-        
     if (firstCalc == ''){
-        alert("You need to add a number before the operator");
+        alert("You need to add a number beofre the next operator");
         return;
-    } 
-    /*
-    else if (totalCalc !== Number | firstCalc !== Number){
-        totalCalcText = totalCalcText + totalCalc + " + " + firstCalc;
-        let totalCalcNum = parseFloat(totalCalc);
-        let firstCalcNum = parseFloat(firstCalc);
-        console.log(firstCalcNum);
-        console.log(totalCalcNum);
-        actualSolution = operate(totalCalcNum, firstCalcNum, operatorChosen)
-        actualSolution = Math.round((actualSolution + Number.EPSILON) * 100) / 100;
-        firstCalc = "";
-        totalCalc = actualSolution;
-        mainScreen.innerHTML = '';
-        topScreen.innerHTML = totalCalcText;
-        return actualSolution;
-    } else {
-    */
-
-    totalCalc = firstCalc;
-    firstCalc = "";
-    operatorChosen = "sum";
-    totalCalcText = totalCalc + " + ";
-    topScreen.innerHTML = totalCalcText;
-    mainScreen.innerHTML = firstCalc;
-    console.log(totalCalc)
-    console.log(firstCalc);
-    return operatorChosen;
+    }
+    console.log(firstCalc == '')
+    let firstCalcNum = parseFloat(firstCalc);
+    totalCalc.push(firstCalcNum, " + ");
+    topScreen.innerHTML = totalCalc.join('');
+    firstCalc = '';
+    mainScreen.innerHTML = '';
+    console.log(totalCalc);
 
     
 });
 
 buttonSubtract.addEventListener('click', function(e) {
     if (firstCalc == ''){
-        alert("You need to add a number before the operator");
+        alert("You need to add a number beofre the next operator");
         return;
     }
-    totalCalc = firstCalc;
-    firstCalc = "";
-    operatorChosen = "subtract";
-    totalCalcText = totalCalcText +totalCalc + " - ";
-    topScreen.innerHTML = totalCalcText;
-    mainScreen.innerHTML = firstCalc;
-    console.log(totalCalc)
-    console.log(firstCalc);
-    return operatorChosen;
+    let firstCalcNum = parseFloat(firstCalc);
+    totalCalc.push(firstCalcNum, " - ");
+    topScreen.innerHTML = totalCalc.join('');
+    firstCalc = '';
+    mainScreen.innerHTML = '';
+    console.log(totalCalc);
     
 });
 
 buttonDivision.addEventListener('click', function(e) {
     if (firstCalc == ''){
-        alert("You need to add a number before the operator");
+        alert("You need to add a number beofre the next operator");
         return;
     }
-    totalCalc = firstCalc;
-    firstCalc = "";
-    operatorChosen = "divideNumbers";
-    totalCalcText = totalCalc + " ÷ ";
-    topScreen.innerHTML = totalCalcText;
-    mainScreen.innerHTML = firstCalc;
-    console.log(totalCalc)
-    console.log(firstCalc);
-    return operatorChosen;
+    let firstCalcNum = parseFloat(firstCalc);
+    totalCalc.push(firstCalcNum, " ÷ ");
+    topScreen.innerHTML = totalCalc.join('');
+    firstCalc = '';
+    mainScreen.innerHTML = '';
+    console.log(totalCalc);
     
 });
 
 buttonMultiply.addEventListener('click', function(e) {
     if (firstCalc == ''){
-        alert("You need to add a number before the operator");
+        alert("You need to add a number beofre the next operator");
         return;
     }
-    totalCalc = firstCalc;
-    firstCalc = "";
-    operatorChosen = "multiply";
-    totalCalcText = totalCalc + " x ";
-    topScreen.innerHTML = totalCalcText;
-    mainScreen.innerHTML = firstCalc;
-    console.log(totalCalc)
-    console.log(firstCalc);
-    return operatorChosen;
+    let firstCalcNum = parseFloat(firstCalc);
+    totalCalc.push(firstCalcNum, " x ");
+    topScreen.innerHTML = totalCalc.join('');
+    firstCalc = '';
+    mainScreen.innerHTML = '';
+    console.log(totalCalc);
     
 });
 
 buttonRemainder.addEventListener('click', function(e) {
     if (firstCalc == ''){
-        alert("You need to add a number before the operator");
+        alert("You need to add a number beofre the next operator");
         return;
     }
-    totalCalc = firstCalc;
-    firstCalc = "";
-    operatorChosen = "remainder";
-    totalCalcText = totalCalc + " % ";
-    topScreen.innerHTML = totalCalcText;
-    mainScreen.innerHTML = firstCalc;
-    console.log(totalCalc)
-    console.log(firstCalc);
-    return operatorChosen;
+
+    let firstCalcNum = parseFloat(firstCalc);
+    totalCalc.push(firstCalcNum, " % ");
+    topScreen.innerHTML = totalCalc.join('');
+    firstCalc = '';
+    mainScreen.innerHTML = '';
+    console.log(totalCalc);
 
     
 });
@@ -300,18 +264,15 @@ buttonRemainder.addEventListener('click', function(e) {
 
 
 buttonEraseAll.addEventListener('click', function(e) {
+    totalCalc = [];
     firstCalc = '';
-    totalCalc = '';
-    totalCalcText = '';
-    mainScreen.innerHTML = firstCalc;
-    topScreen.innerHTML= totalCalc;
-    return firstCalc,totalCalc;
-
+    topScreen.innerHTML = totalCalc.join('');
+    mainScreen.innerHTML = '';
     
 });
 
 buttonRemove.addEventListener('click', function(e) {
-    firstCalc.slice(0, -1);
+    firstCalc = firstCalc.slice(0, -1);
     mainScreen.innerHTML = firstCalc;
     return firstCalc;
 
@@ -327,28 +288,47 @@ buttonMood.addEventListener('click', function(e) {
 
 
 buttonEquals.addEventListener('click', function(e) {
-    if (firstCalc == ''){
-        alert("You need a number after the operator in order to calculate something");
-        return;
+    if (firstCalc !== Number){
+        firstCalcNum = parseFloat(firstCalc)
+        totalCalc.push(firstCalcNum);
+        firstCalc = '';
+        mainScreen.innerHTML = firstCalc;
     }
-    let totalCalcNum = parseFloat(totalCalc);
-    let firstCalcNum = parseFloat(firstCalc);
-    console.log(firstCalcNum);
-    console.log(totalCalcNum);
-    if (operatorChosen == ""){
-        actualSolution = firstCalcNum;
-        return actualSolution;
-    } 
-    actualSolution = operate(totalCalcNum,firstCalcNum,operatorChosen);
-    actualSolution = Math.round((actualSolution + Number.EPSILON) * 100) / 100;
-    firstCalc = actualSolution;
-    totalCalc = actualSolution ;
-    mainScreen.innerHTML = actualSolution;
-    topScreen.innerHTML= totalCalc;
-    console.log(actualSolution);
-    return actualSolution;
-      
+
+
+
+        while (totalCalc.includes(" x ")){
+            let opIndex = totalCalc.indexOf(" x ")
+            let operator = totalCalc[opIndex];
+            let a = totalCalc[opIndex - 1];
+            let b = totalCalc[opIndex + 1];
+            console.log(a);
+            console.log(b);
+            let solutionNum = operate(a,b,operator);
+            console.log(solutionNum);
+            totalCalc.splice(opIndex - 1, 3, solutionNum);
+            console.log(totalCalc);
+            return solutionNum;
+            
+        }
     
+
+/*
+
+/
+
+%
+
++
+
+-
+*/
+    
+
+topScreen.innerHTML = solutionNum;
+firstCalc = solutionNum;
+topScreen.innerHTML = totalCalc;
+mainScreen.innerHTML = solutionNum;
 });
     
 

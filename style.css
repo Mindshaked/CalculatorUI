@@ -35,7 +35,7 @@ body {
     background-color: #4b6d91;
     justify-content: flex-end;
     width: 330px;
-    height: 43px;
+    min-height: 43px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 20px;
  
@@ -55,7 +55,7 @@ body {
     display: flex;
     background-color: #698eb6;
     width: 330px;
-    height: 130px;
+    min-height: 130px;
     font-size: 50px;
     color: white;
     justify-content: flex-end;
@@ -132,4 +132,19 @@ button:active {
 
 .button.equals:hover {
     background-color: #c0674e;
+}
+
+
+#theme {
+    align-self: center;
+    color: white;
+    background-color: #4b6d91;
+    padding: 7px;
+    margin: 5px;
+    height: 58px;
+    border-radius: 15px;
+    margin: 7px;
+    font-size: 13px;
+    box-shadow: 2px 4px 5px lightgrey;
+    border: none;
 }
