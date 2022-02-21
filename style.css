@@ -137,14 +137,15 @@ button:active {
 
 #theme {
     align-self: center;
-    color: white;
-    background-color: #4b6d91;
+    color: #4b6d91;
+    background-color: white;
     padding: 7px;
     margin: 5px;
     height: 58px;
     border-radius: 15px;
-    margin: 7px;
+    margin: 9px;
     font-size: 13px;
+    font-weight: bold;
     box-shadow: 2px 4px 5px lightgrey;
     border: none;
 }

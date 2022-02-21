@@ -188,7 +188,7 @@ buttonComa.addEventListener('click', function(e) {
 
 buttonSum.addEventListener('click', function(e) {
     if (firstCalc == ''){
-        alert("You need to add a number beofre the next operator");
+        alert("You need to add a number before the next operator");
         return;
     }
     console.log(firstCalc == '')
@@ -204,7 +204,7 @@ buttonSum.addEventListener('click', function(e) {
 
 buttonSubtract.addEventListener('click', function(e) {
     if (firstCalc == ''){
-        alert("You need to add a number beofre the next operator");
+        alert("You need to add a number before the next operator");
         return;
     }
     let firstCalcNum = parseFloat(firstCalc);
@@ -218,7 +218,7 @@ buttonSubtract.addEventListener('click', function(e) {
 
 buttonDivision.addEventListener('click', function(e) {
     if (firstCalc == ''){
-        alert("You need to add a number beofre the next operator");
+        alert("You need to add a number before the next operator");
         return;
     }
     let firstCalcNum = parseFloat(firstCalc);
@@ -232,7 +232,7 @@ buttonDivision.addEventListener('click', function(e) {
 
 buttonMultiply.addEventListener('click', function(e) {
     if (firstCalc == ''){
-        alert("You need to add a number beofre the next operator");
+        alert("You need to add a number before the next operator");
         return;
     }
     let firstCalcNum = parseFloat(firstCalc);
@@ -246,7 +246,7 @@ buttonMultiply.addEventListener('click', function(e) {
 
 buttonRemainder.addEventListener('click', function(e) {
     if (firstCalc == ''){
-        alert("You need to add a number beofre the next operator");
+        alert("You need to add a number before the next operator");
         return;
     }
 
@@ -280,7 +280,7 @@ buttonRemove.addEventListener('click', function(e) {
 });
 
 buttonMood.addEventListener('click', function(e) {
-    buttonAll.style.backgroundcolor = "#4b6d91";
+    buttonZero.style.backgroundcolor = "#4b6d91";
 });
 
 // equals function
@@ -288,12 +288,19 @@ buttonMood.addEventListener('click', function(e) {
 
 
 buttonEquals.addEventListener('click', function(e) {
-    if (firstCalc !== Number){
+    if (totalCalc.length == 1){
+        return totalCalc; 
+
+    } else if ((totalCalc.slice(-1) == " x " || totalCalc.slice(-1) == " ÷ "  || totalCalc.slice(-1) == " + " || totalCalc.slice(-1) == " - " || totalCalc.slice(-1) == " % ") && (firstCalc == '')) {
+        alert("you need to add a number after the operator");
+        return;
+
+    } else if (firstCalc !== Number){
         firstCalcNum = parseFloat(firstCalc)
         totalCalc.push(firstCalcNum);
         firstCalc = '';
         topScreen.innerHTML = totalCalc.join('');
-        mainScreen.innerHTML = firstCalc;
+        mainScreen.innerHTML = firstCalc;  
     }
 
     let solutionNum;
@@ -366,6 +373,7 @@ buttonEquals.addEventListener('click', function(e) {
         }
 
         console.log(solutionNum);
+        solutionNum = Math.round((solutionNum + Number.EPSILON) * 100) / 100
         firstCalc = solutionNum;
         totalCalc = [];
         topScreen.innerHTML = '';
