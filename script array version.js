@@ -292,11 +292,13 @@ buttonEquals.addEventListener('click', function(e) {
         firstCalcNum = parseFloat(firstCalc)
         totalCalc.push(firstCalcNum);
         firstCalc = '';
+        topScreen.innerHTML = totalCalc.join('');
         mainScreen.innerHTML = firstCalc;
     }
 
+    let solutionNum;
 
-
+    while (totalCalc.length > 1){
         while (totalCalc.includes(" x ")){
             let opIndex = totalCalc.indexOf(" x ")
             let operator = totalCalc[opIndex];
@@ -304,15 +306,72 @@ buttonEquals.addEventListener('click', function(e) {
             let b = totalCalc[opIndex + 1];
             console.log(a);
             console.log(b);
-            let solutionNum = operate(a,b,operator);
+            solutionNum = operate(a,b,operator);
             console.log(solutionNum);
             totalCalc.splice(opIndex - 1, 3, solutionNum);
             console.log(totalCalc);
-            return solutionNum;
             
         }
     
+        while (totalCalc.includes(" ÷ ")){
+            let opIndex = totalCalc.indexOf(" ÷ ")
+            let operator = totalCalc[opIndex];
+            let a = totalCalc[opIndex - 1];
+            let b = totalCalc[opIndex + 1];
+            console.log(a);
+            console.log(b);
+            solutionNum = operate(a,b,operator);
+            console.log(solutionNum);
+            totalCalc.splice(opIndex - 1, 3, solutionNum);
+            console.log(totalCalc);
+        }
 
+        while (totalCalc.includes(" % ")){
+            let opIndex = totalCalc.indexOf(" % ")
+            let operator = totalCalc[opIndex];
+            let a = totalCalc[opIndex - 1];
+            let b = totalCalc[opIndex + 1];
+            console.log(a);
+            console.log(b);
+            solutionNum = operate(a,b,operator);
+            console.log(solutionNum);
+            totalCalc.splice(opIndex - 1, 3, solutionNum);
+            console.log(totalCalc);
+        }
+
+        while (totalCalc.includes(" + ")){
+            let opIndex = totalCalc.indexOf(" + ")
+            let operator = totalCalc[opIndex];
+            let a = totalCalc[opIndex - 1];
+            let b = totalCalc[opIndex + 1];
+            console.log(a);
+            console.log(b);
+            solutionNum = operate(a,b,operator);
+            console.log(solutionNum);
+            totalCalc.splice(opIndex - 1, 3, solutionNum);
+            console.log(totalCalc);
+        }
+
+        while (totalCalc.includes(" - ")){
+            let opIndex = totalCalc.indexOf(" - ")
+            let operator = totalCalc[opIndex];
+            let a = totalCalc[opIndex - 1];
+            let b = totalCalc[opIndex + 1];
+            console.log(a);
+            console.log(b);
+            solutionNum = operate(a,b,operator);
+            console.log(solutionNum);
+            totalCalc.splice(opIndex - 1, 3, solutionNum);
+            console.log(totalCalc);
+        }
+
+        console.log(solutionNum);
+        firstCalc = solutionNum;
+        totalCalc = [];
+        topScreen.innerHTML = '';
+        mainScreen.innerHTML = firstCalc;
+        return solutionNum;
+    }
 /*
 
 /
@@ -325,10 +384,6 @@ buttonEquals.addEventListener('click', function(e) {
 */
     
 
-topScreen.innerHTML = solutionNum;
-firstCalc = solutionNum;
-topScreen.innerHTML = totalCalc;
-mainScreen.innerHTML = solutionNum;
 });
     
 
