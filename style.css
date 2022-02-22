@@ -116,7 +116,7 @@ button:active {
 }
 
 .button.operator:hover {
-    background-color: #2c4764;
+    filter: brightness(85%);
 }
 
 #remove {
@@ -148,4 +148,9 @@ button:active {
     font-weight: bold;
     box-shadow: 2px 4px 5px lightgrey;
     border: none;
+}
+
+a {
+    text-decoration: none;
+    color: white;
 }
