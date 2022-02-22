@@ -131,7 +131,7 @@ button:active {
 }
 
 .button.equals:hover {
-    background-color: #c0674e;
+    filter: brightness(85%);
 }
 
 

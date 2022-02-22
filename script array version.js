@@ -72,12 +72,18 @@ const buttonMultiply = document.getElementById("multiply");
 
 const buttonRemainder = document.getElementById("remainder")
 
-//other tool numbers
+//other tools
 
 const buttonEraseAll = document.getElementById("erase-all");
 const buttonRemove = document.getElementById("remove");
 
 const buttonMood = document.getElementById("theme");
+
+const mainScreenStyle = document.getElementById("main-screen")
+const topScreenStyle = document.getElementById("top-screen")
+const buttonsPadStyle = document.getElementById("buttons-pad")
+
+const bodyStyle = document.querySelector("body");
 
 
 //equals button
@@ -279,8 +285,81 @@ buttonRemove.addEventListener('click', function(e) {
 
 });
 
+let styleCounter = 1;
+
 buttonMood.addEventListener('click', function(e) {
-    buttonZero.style.backgroundcolor = "#4b6d91";
+
+    styleCounter = styleCounter + 1;
+    console.log(styleCounter)
+    
+    if (styleCounter == 1){
+        mainScreenStyle.style.background = "#698eb6";
+        topScreenStyle.style.background = "#4b6d91";
+        buttonsPadStyle.style.background = "#ffffff";
+        buttonSum.style.background = "#4b6d91";
+        buttonSum.style.color = "white";
+        buttonSubtract.style.background = "#4b6d91";
+        buttonSubtract.style.color = "white";
+        buttonDivision.style.background = "#4b6d91";
+        buttonDivision.style.color = "white";
+        buttonMultiply.style.background = "#4b6d91";
+        buttonMultiply.style.color = "white";
+        buttonEquals.style.background = "#eb8468";
+        buttonMood.style.background = "white";
+        buttonMood.style.color = "#4b6d91";
+        bodyStyle.style.background = "rgb(2,0,36)";
+        bodyStyle.style.background = "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(235,132,104,1) 35%, rgba(51,90,132,1) 100%)";
+
+    } else if (styleCounter == 2){
+        mainScreenStyle.style.background = "#f1c0e8";
+        topScreenStyle.style.background = "#cfbaf0";
+        buttonsPadStyle.style.background = "#ffcfd2";
+        buttonSum.style.background = "#a3c4f3";
+        buttonSubtract.style.background = "#a3c4f3";
+        buttonDivision.style.background = "#a3c4f3";
+        buttonMultiply.style.background = "#a3c4f3";
+        buttonEquals.style.background = "#98f5e1";
+        buttonMood.style.background = "#cfbaf0";
+        buttonMood.style.color = "white";
+        bodyStyle.style.background = "#90dbf4";
+        
+        
+
+    } else if (styleCounter == 3){
+        mainScreenStyle.style.background = "#e4572E";
+        topScreenStyle.style.background = "#17BEBB";
+        buttonsPadStyle.style.background = "#2E282A";
+        buttonSum.style.background = "#FFC914";
+        buttonSubtract.style.background = "#FFC914";
+        buttonDivision.style.background = "#FFC914";
+        buttonMultiply.style.background = "#FFC914";
+        buttonEquals.style.background = "#76B041";
+        buttonMood.style.background = "#E4572E";
+        buttonMood.style.color = "white";
+        bodyStyle.style.background = "grey";
+        bodyStyle.style.background = "linear-gradient(228deg, rgba(64,53,53,1) 10%, rgba(0,0,0,1) 100%)";
+
+    } else if (styleCounter == 4){
+        mainScreenStyle.style.background = "#6f1d1b";
+        topScreenStyle.style.background = "#99582a";
+        buttonsPadStyle.style.background = "#432818";
+        buttonSum.style.background = "#99582a";
+        buttonSum.style.color = "white";
+        buttonSubtract.style.background = "#99582a";
+        buttonSubtract.style.color = "white";
+        buttonDivision.style.background = "#99582a";
+        buttonDivision.style.color = "white";
+        buttonMultiply.style.background = "#99582a";
+        buttonMultiply.style.color = "white";
+        buttonEquals.style.background = "#ffe6a7";
+        buttonEquals.style.color = "black";
+        buttonMood.style.background = "#432818";
+        buttonMood.style.color = "white";
+        bodyStyle.style.background = "#bb9457";
+       
+        styleCounter = 0;
+    }
+
 });
 
 // equals function
@@ -380,16 +459,6 @@ buttonEquals.addEventListener('click', function(e) {
         mainScreen.innerHTML = firstCalc;
         return solutionNum;
     }
-/*
-
-/
-
-%
-
-+
-
--
-*/
     
 
 });
